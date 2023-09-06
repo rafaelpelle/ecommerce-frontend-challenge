@@ -2,6 +2,7 @@ import CartIcon from './CartIcon';
 import Footer from './Footer';
 import HamburgerIcon from './HamburgerIcon';
 import Header from './Header';
+import HomeBanners from './HomeBanners';
 import MenuListItems from './MenuListItems';
 import NeoMarketLogo from './NeoMarketLogo';
 import SearchForm from './SearchForm';
@@ -15,6 +16,7 @@ export {
   Footer,
   HamburgerIcon,
   Header,
+  HomeBanners,
   MenuListItems,
   NeoMarketLogo,
   SearchForm,
