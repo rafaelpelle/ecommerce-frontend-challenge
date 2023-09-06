@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light">
       <body className={montserrat.className}>
-        <Header />
-        {children}
+        <Header>{children}</Header>
+        <section className="hidden sm:block">{children}</section>
         <Footer />
       </body>
     </html>

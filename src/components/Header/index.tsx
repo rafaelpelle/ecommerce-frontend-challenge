@@ -7,7 +7,11 @@ import {
 } from '@/components';
 import Link from 'next/link';
 
-function MobileHeader() {
+export interface HeaderProps {
+  children?: React.ReactNode;
+}
+
+function MobileHeader({ children }: HeaderProps) {
   return (
     <div className="drawer sm:hidden min-h-screen relative z-10">
       <input id="drawer" type="checkbox" className="drawer-toggle" />
@@ -25,6 +29,8 @@ function MobileHeader() {
             <NeoMarketLogo />
           </Link>
         </div>
+
+        <div className="mt-20 px-2">{children}</div>
       </div>
 
       <div className="drawer-side z-20">
@@ -67,11 +73,11 @@ function DesktopHeader() {
   );
 }
 
-export default function Header() {
+export default function Header({ children }: HeaderProps) {
   return (
     <header>
       <DesktopHeader />
-      <MobileHeader />
+      <MobileHeader>{children}</MobileHeader>
     </header>
   );
 }
