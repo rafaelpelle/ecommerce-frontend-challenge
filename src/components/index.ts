@@ -5,6 +5,7 @@ import Header from './Header';
 import HomeBanners from './HomeBanners';
 import MenuListItems from './MenuListItems';
 import NeoMarketLogo from './NeoMarketLogo';
+import ProductBanners from './ProductBanners';
 import SearchForm from './SearchForm';
 import SearchIcon from './SearchIcon';
 import UserContent from './UserContent';
@@ -19,6 +20,7 @@ export {
   HomeBanners,
   MenuListItems,
   NeoMarketLogo,
+  ProductBanners,
   SearchForm,
   SearchIcon,
   UserContent,
