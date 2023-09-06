@@ -11,11 +11,21 @@ const config: Config = {
     colors: {
       yellow: '#FEE100',
       red: '#F80447',
+      white: '#FFF',
+      black: '#000',
     },
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light'],
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/theming/themes')['[data-theme=light]'],
+          primary: '#F80447',
+          secondary: '#FEE100',
+        },
+      },
+    ],
   },
 };
 export default config;
