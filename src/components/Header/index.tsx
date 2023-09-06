@@ -1,5 +1,6 @@
 import {
   HamburgerIcon,
+  MenuListItems,
   NeoMarketLogo,
   SearchForm,
   UserContent,
@@ -28,7 +29,15 @@ function MobileHeader() {
 
       <div className="drawer-side z-20">
         <label htmlFor="drawer" className="drawer-overlay"></label>
-        <ul className="menu bg-primary p-4 w-80 h-full"></ul>
+        <ul className="menu bg-primary p-4 max-w-80 h-full">
+          <UserContent />
+
+          <div className="w-full my-10">
+            <SearchForm />
+          </div>
+
+          <MenuListItems />
+        </ul>
       </div>
     </div>
   );
@@ -47,6 +56,12 @@ function DesktopHeader() {
 
           <UserContent />
         </div>
+      </div>
+
+      <div className="navbar bg-secondary py-0 items-end h-12 min-h-fit">
+        <ul className="menu menu-horizontal mx-auto py-0">
+          <MenuListItems />
+        </ul>
       </div>
     </div>
   );

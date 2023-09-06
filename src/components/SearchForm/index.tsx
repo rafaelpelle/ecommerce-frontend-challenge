@@ -9,8 +9,11 @@ export default function SearchForm() {
           placeholder="Estou procurando por..."
           className="input bg-black text-white placeholder-white bg-opacity-0 focus:outline-none text-sm"
         />
-        <button className="btn btn-secondary !rounded-full text-black focus:outline-none text-xs">
+        <button className="btn btn-secondary !rounded-full text-black focus:outline-none text-xs hidden sm:flex">
           BUSCAR
+          <SearchIcon />
+        </button>
+        <button className="btn btn-ghost text-secondary !rounded-full focus:outline-none text-xs flex sm:hidden px-5">
           <SearchIcon />
         </button>
       </div>
