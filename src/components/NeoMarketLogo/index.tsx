@@ -5,11 +5,14 @@ export interface NeoMarketLogoProps {
   height?: number;
 }
 
-export default function NeoMarketLogo({
-  width = 100,
-  height = 100,
-}: NeoMarketLogoProps) {
+export default function NeoMarketLogo({ width = 100 }: NeoMarketLogoProps) {
   return (
-    <Image alt="RP Logo" src="/assets/logo.png" width={width} height={height} />
+    <Image
+      alt="RP Logo"
+      src="/assets/logo.png"
+      className="w-24 h-auto"
+      width={width}
+      height={0}
+    />
   );
 }
