@@ -8,22 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {},
+    colors: {
+      yellow: '#FEE100',
+      red: '#F80447',
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: [
-      'light',
-      {
-        dark: {
-          ...require('daisyui/src/theming/themes')['[data-theme=dark]'],
-          info: '#3CCEFF',
-          primary: '#3CCEFF',
-          'primary-focus': '#26A1D6',
-          'primary-hover': '#26A1D6',
-          'primary-content': '#1d232a',
-        },
-      },
-    ],
+    themes: ['light'],
   },
 };
 export default config;
