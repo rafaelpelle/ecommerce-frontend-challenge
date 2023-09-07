@@ -1,8 +1,8 @@
-import { MailIcon } from '@/components';
+import { MailIcon, SendIcon } from '@/components';
 
 export default function Subscribe() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center text-center px-2">
       <MailIcon />
       <p className="text-xl font-bold my-1">CADASTRE-SE</p>
       <p>
@@ -16,8 +16,11 @@ export default function Subscribe() {
             placeholder="email@exemplo.com.br"
             className="!rounded-none  input focus:outline-none"
           />
-          <button className="btn btn-ghost !rounded-none text-black focus:outline-none">
+          <button className="btn btn-ghost !rounded-none text-black focus:outline-none hidden sm:block">
             CADASTRAR
+          </button>
+          <button className="btn btn-ghost !rounded-none text-black focus:outline-none block sm:hidden">
+            <SendIcon />
           </button>
         </div>
       </div>
