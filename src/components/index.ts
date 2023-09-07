@@ -1,5 +1,6 @@
 import BestOffers from './BestOffers';
 import CartIcon from './CartIcon';
+import ClientSideCartProvider from './ClientSideCartProvider';
 import Footer from './Footer';
 import HamburgerIcon from './HamburgerIcon';
 import Header from './Header';
@@ -23,6 +24,7 @@ import WishlistIcon from './WishlistIcon';
 export {
   BestOffers,
   CartIcon,
+  ClientSideCartProvider,
   Footer,
   HamburgerIcon,
   Header,

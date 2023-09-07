@@ -1,7 +1,23 @@
+'use client';
+
 import { CartIcon, UserIcon, WishlistIcon } from '@/components';
+import { getCartSize } from '@/utils/cart';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function UserContent() {
+  const [cartSize, setCartSize] = useState<number>(0);
+
+  useEffect(() => {
+    const listenCartChange = () => {
+      setCartSize(getCartSize());
+    };
+
+    setCartSize(getCartSize());
+    window.addEventListener('cartUpdated', listenCartChange);
+    return () => window.removeEventListener('cartUpdated', listenCartChange);
+  }, []);
+
   return (
     <section className="text-white flex items-center">
       <div className="flex items-center">
@@ -22,9 +38,6 @@ export default function UserContent() {
 
       <Link href="/wishlist" className="ml-7">
         <div className="indicator">
-          <span className="indicator-item badge badge-secondary text-primary text-xs">
-            1
-          </span>
           <WishlistIcon />
         </div>
       </Link>
@@ -32,7 +45,7 @@ export default function UserContent() {
       <Link href="/cart" className="ml-7">
         <div className="indicator">
           <span className="indicator-item badge badge-secondary text-primary text-xs">
-            1
+            {cartSize}
           </span>
           <CartIcon />
         </div>

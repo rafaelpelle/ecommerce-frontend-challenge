@@ -1,6 +1,7 @@
 import { numberToMonetary } from '@/utils/number';
 import { Product } from '@/utils/products';
 import Image from 'next/image';
+import { BuyButton } from './BuyButton';
 
 export interface ProductCardProps {
   product: Product;
@@ -19,7 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
       <figure>
         <Image
-          src={product.imgSrc}
+          src={`/assets/products/${product.id}.jpg`}
           alt={product.name}
           className="w-full h-auto rounded"
           sizes="100vw"
@@ -53,9 +54,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="card-actions justify-center my-2">
-          <button className="btn btn-secondary btn-sm text-white text-xs rounded-full hover:text-black">
-            APROVEITE
-          </button>
+          <BuyButton product={product} />
         </div>
       </div>
     </div>
