@@ -1,4 +1,9 @@
-import { BestOffers, HomeBanners, ProductBanners } from '@/components';
+import {
+  BestOffers,
+  HomeBanners,
+  LastUnitsOffers,
+  ProductBanners,
+} from '@/components';
 
 export default function Home() {
   return (
@@ -8,6 +13,8 @@ export default function Home() {
       <BestOffers />
 
       <ProductBanners />
+
+      <LastUnitsOffers />
     </section>
   );
 }

@@ -9,6 +9,14 @@ export interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="card card-compact card-bordered border-grey w-full">
+      <div className="bg-primary rounded-t-xl">
+        <p className="text-xs text-center p-2 text-white">
+          Aproveite o desconto de{' '}
+          <strong className="text-secondary">
+            {product.discountPercentage}%
+          </strong>
+        </p>
+      </div>
       <figure>
         <Image
           src={product.imgSrc}
@@ -25,12 +33,13 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="rating rating-xs flex justify-center my-2">
           {Array.from(Array(5).keys()).map((_, index) => (
             <input
+              readOnly
               checked
               key={index}
               type="radio"
               name="rating-2"
               className={`mask mask-star-2 ${
-                index < product.review ? 'bg-secondary' : 'opacity-50'
+                index < product.review ? 'bg-secondary' : 'opacity-30'
               }`}
             />
           ))}
@@ -38,9 +47,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <div className="flex items-center justify-center">
           <strong>{numberToMonetary(product.discountedPrice ?? 0)}</strong>
-          <span className="line-through ml-5 opacity-75">
+          <strong className="line-through ml-5 opacity-40">
             {numberToMonetary(product.price)}
-          </span>
+          </strong>
         </div>
 
         <div className="card-actions justify-center my-2">

@@ -4,6 +4,7 @@ import Footer from './Footer';
 import HamburgerIcon from './HamburgerIcon';
 import Header from './Header';
 import HomeBanners from './HomeBanners';
+import LastUnitsOffers from './LastUnitsOffers';
 import MenuListItems from './MenuListItems';
 import NeoMarketLogo from './NeoMarketLogo';
 import ProductBanners from './ProductBanners';
@@ -21,6 +22,7 @@ export {
   HamburgerIcon,
   Header,
   HomeBanners,
+  LastUnitsOffers,
   MenuListItems,
   NeoMarketLogo,
   ProductBanners,

@@ -1,3 +1,5 @@
+import { getRandomIntegerBetween } from '@/utils/number';
+
 export interface Product {
   name: string;
   imgSrc: string;
@@ -6,6 +8,7 @@ export interface Product {
   discountPercentage?: number;
   discountedPrice?: number;
 }
+
 export const productsList: Product[] = [
   {
     name: 'Smartwatch pulseira branca',
@@ -74,9 +77,18 @@ export const productsList: Product[] = [
     review: 5,
   },
   {
-    name: 'Brinquedo divertido com 12 sons',
+    name: 'Boneco interativo BeatBo Fisher-Price',
     imgSrc: '/assets/products/12.jpg',
-    price: 134.56,
+    price: 59.9,
     review: 4,
   },
 ];
+
+export function parseProduct(product: Product): Product {
+  const discountPercentage = getRandomIntegerBetween(1, 50);
+  return {
+    ...product,
+    discountPercentage,
+    discountedPrice: product.price * (1 - discountPercentage / 100),
+  };
+}
