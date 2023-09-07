@@ -9,8 +9,9 @@ export default function SocialLinks() {
           alt="Instagram logo"
           src="/assets/social/instagram.png"
           className="w-10 h-auto"
-          width={40}
+          width={0}
           height={0}
+          sizes="100vw"
         />
       </Link>
       <Link href="https://facebook.com/" target="_blank">
@@ -18,8 +19,9 @@ export default function SocialLinks() {
           alt="Facebook logo"
           src="/assets/social/facebook.png"
           className="w-10 h-auto"
-          width={40}
+          width={0}
           height={0}
+          sizes="100vw"
         />
       </Link>
       <Link href="https://youtube.com/" target="_blank">
@@ -27,8 +29,9 @@ export default function SocialLinks() {
           alt="YouTube logo"
           src="/assets/social/youtube.png"
           className="w-10 h-auto"
-          width={40}
+          width={0}
           height={0}
+          sizes="100vw"
         />
       </Link>
       <Link href="https://pinterest.com/" target="_blank">
@@ -36,8 +39,9 @@ export default function SocialLinks() {
           alt="Pinterest logo"
           src="/assets/social/pinterest.png"
           className="w-10 h-auto"
-          width={40}
+          width={0}
           height={0}
+          sizes="100vw"
         />
       </Link>
       <Link href="https://linkedin.com/" target="_blank">
@@ -45,8 +49,9 @@ export default function SocialLinks() {
           alt="LinkedIn logo"
           src="/assets/social/linkedin.png"
           className="w-10 h-auto"
-          width={40}
+          width={0}
           height={0}
+          sizes="100vw"
         />
       </Link>
     </div>
