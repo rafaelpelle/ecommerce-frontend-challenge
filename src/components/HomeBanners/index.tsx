@@ -1,11 +1,8 @@
+import banner1Src from '@/../public/assets/banner1.png';
+import banner2Src from '@/../public/assets/banner2.png';
+import fullBannerSrc from '@/../public/assets/full-banner.png';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const banner1BlurDataURL =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAMUExURUfCzUrB0mS9xP///0bZe78AAAABYktHRAMRDEzyAAAAB3RJTUUH5wkGESgN0eanZwAAAApJREFUCNdjkAAAABoAGYcG7HQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDktMDZUMTc6Mzk6NTMrMDA6MDBEtYGXAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTA5LTA2VDE3OjM5OjUzKzAwOjAwNeg5KwAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wOS0wNlQxNzo0MDoxMyswMDowMDOZKEcAAAAASUVORK5CYII=';
-
-const banner2BlurDataURL =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABAgMAAABmjvwnAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAAMUExURei4Jf3OD//OCv///xRzL/MAAAABYktHRAMRDEzyAAAAB3RJTUUH5wkGESgN0eanZwAAAApJREFUCNdjkAAAABoAGYcG7HQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMDktMDZUMTc6Mzk6NTQrMDA6MDCBEr8ZAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTA5LTA2VDE3OjM5OjU0KzAwOjAw8E8HpQAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0wOS0wNlQxNzo0MDoxMyswMDowMDOZKEcAAAAASUVORK5CYII=';
 
 export default function HomeBanners() {
   return (
@@ -16,10 +13,7 @@ export default function HomeBanners() {
           <Image
             className="w-full h-auto rounded"
             alt="Full Banner"
-            src="/assets/full-banner.png"
-            sizes="100vw"
-            width={0}
-            height={0}
+            src={fullBannerSrc}
             priority
             loading="eager"
           />
@@ -30,12 +24,8 @@ export default function HomeBanners() {
           <Image
             className="w-full h-auto rounded"
             alt="Banner 1"
-            src="/assets/banner1.png"
-            sizes="100vw"
-            width={0}
-            height={0}
+            src={banner1Src}
             placeholder="blur"
-            blurDataURL={banner1BlurDataURL}
           />
         </Link>
       </div>
@@ -44,12 +34,8 @@ export default function HomeBanners() {
           <Image
             className="w-full h-auto rounded"
             alt="Banner 1"
-            src="/assets/banner2.png"
-            sizes="100vw"
-            width={0}
-            height={0}
+            src={banner2Src}
             placeholder="blur"
-            blurDataURL={banner2BlurDataURL}
           />
         </Link>
       </div>

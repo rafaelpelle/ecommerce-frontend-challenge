@@ -1,3 +1,5 @@
+import encryptLogoSrc from '@/../public/assets/encrypt-logo.png';
+import jetLogoSrc from '@/../public/assets/logo-JET.png';
 import { LinkColumn, SocialLinks, Subscribe } from '@/components';
 import Image from 'next/image';
 
@@ -38,17 +40,15 @@ export default function Footer() {
             <h4 className="font-bold mb-2">CONFIE</h4>
             <Image
               alt="encrypt logo"
-              src="/assets/encrypt-logo.png"
+              src={encryptLogoSrc}
               className="w-20 h-auto"
-              width={100}
-              height={0}
+              placeholder="blur"
             />
             <Image
               alt="JET logo"
-              src="/assets/logo-JET.png"
+              src={jetLogoSrc}
               className="w-20 h-auto mt-5"
-              width={100}
-              height={0}
+              placeholder="blur"
             />
           </div>
         </div>
