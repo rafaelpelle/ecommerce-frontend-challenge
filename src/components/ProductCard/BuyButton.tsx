@@ -19,7 +19,6 @@ export function BuyButton({ product }: BuyButtonProps) {
         onClick={() => {
           addToCart(product);
           setClicked(true);
-          window.dispatchEvent(new Event('cartUpdated'));
           setTimeout(() => {
             setClicked(false);
           }, 3000);

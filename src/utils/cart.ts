@@ -14,24 +14,23 @@ export function initializeCart() {
   }
 }
 
-export function getCartSize(): number {
-  if (typeof localStorage === 'undefined') return 0;
+export function getCart(): CartProduct[] {
+  if (typeof localStorage === 'undefined') return [];
 
+  return JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+}
+
+export function getCartSize(): number {
+  const cart: CartProduct[] = getCart();
   let size = 0;
-  const cart: CartProduct[] = JSON.parse(
-    localStorage.getItem(CART_STORAGE_KEY) || '[]',
-  );
   cart.forEach((item) => {
     size += item.quantity;
   });
-
   return size;
 }
 
 export function addToCart(product: Product) {
-  const cart: CartProduct[] = JSON.parse(
-    localStorage.getItem(CART_STORAGE_KEY) || '[]',
-  );
+  const cart: CartProduct[] = getCart();
 
   const index = cart.findIndex((p: CartProduct) => p.id === product.id);
 
@@ -46,12 +45,34 @@ export function addToCart(product: Product) {
       ...product,
       quantity: cart[index].quantity + 1,
     };
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify([...cart]));
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
   }
+  window.dispatchEvent(new Event('cartUpdated'));
 }
-export function removeFromCart(product: Product) {
-  console.log('teste', product.id);
+
+export function removeFromCart({ id }: Product) {
+  const cart: CartProduct[] = getCart();
+  localStorage.setItem(
+    CART_STORAGE_KEY,
+    JSON.stringify(cart.filter((p: CartProduct) => p.id !== id)),
+  );
+  window.dispatchEvent(new Event('cartUpdated'));
 }
+
 export function decreaseQuantityFromCart(product: Product) {
-  console.log('teste', product.id);
+  const { id } = product;
+  const cart: CartProduct[] = getCart();
+  const index = cart.findIndex((p: CartProduct) => p.id === id);
+  const newQuantity = cart[index].quantity - 1;
+
+  if (newQuantity === 0) {
+    removeFromCart(product);
+  } else {
+    cart[index] = {
+      ...cart[index],
+      quantity: newQuantity,
+    };
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    window.dispatchEvent(new Event('cartUpdated'));
+  }
 }
