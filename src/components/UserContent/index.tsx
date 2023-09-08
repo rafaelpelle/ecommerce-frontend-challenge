@@ -25,24 +25,28 @@ export default function UserContent() {
         <div className="ml-1 text-xs">
           <p>Bem vinda(o)</p>
           <p>
-            <Link className="text-secondary font-semibold" href="/login">
+            <Link
+              className="text-secondary font-semibold"
+              href="/login"
+              prefetch={false}
+            >
               Faça login
             </Link>{' '}
             ou{' '}
-            <Link className="font-semibold" href="/register">
+            <Link className="font-semibold" href="/register" prefetch={false}>
               cadastre-se
             </Link>
           </p>
         </div>
       </div>
 
-      <Link href="/wishlist" className="ml-7">
+      <Link href="/wishlist" className="ml-7" prefetch={false}>
         <div className="indicator">
           <WishlistIcon />
         </div>
       </Link>
 
-      <Link href="/cart" className="ml-7">
+      <Link href="/cart" className="ml-7" prefetch={false}>
         <div className="indicator">
           <span className="indicator-item badge badge-secondary text-primary text-xs">
             {cartSize}
