@@ -1,21 +1,45 @@
-import { numberToMonetary } from '@/utils/number';
+import { getRandomIntegerBetween, numberToMonetary } from '@/utils/number';
 import { Product } from '@/utils/products';
 import Image from 'next/image';
+import { useMemo } from 'react';
 import { BuyButton } from './BuyButton';
 
 export interface ProductCardProps {
   product: Product;
 }
 
+const possibleDiscountTexts: string[] = [
+  'Aproveite o desconto de {{value}}',
+  'Um super desconto de {{value}}',
+  'Produto com {{value}} de desconto',
+  'Oferta com {{value}} de desconto',
+];
+
 export default function ProductCard({ product }: ProductCardProps) {
+  const discountTextElment = useMemo(() => {
+    const randomIndex = getRandomIntegerBetween(
+      0,
+      possibleDiscountTexts.length - 1,
+    );
+    const randomText = possibleDiscountTexts[randomIndex];
+    const randomTextParts = randomText.split(/\{\{|\}\}/g);
+
+    return randomTextParts.map((part, index) =>
+      part === 'value' ? (
+        <strong key={part + index} className="text-secondary">
+          {product.discountPercentage}%
+        </strong>
+      ) : (
+        <span key={part}>{part}</span>
+      ),
+    );
+  }, [product.discountPercentage]);
+
   return (
     <div className="card card-compact card-bordered border-grey w-full">
       <div className="bg-primary rounded-t-xl">
         <p className="text-xs text-center p-2 text-white">
-          Aproveite o desconto de{' '}
-          <strong className="text-secondary">
-            {product.discountPercentage}%
-          </strong>
+          {discountTextElment}
         </p>
       </div>
       <figure>
